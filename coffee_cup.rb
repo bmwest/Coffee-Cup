@@ -1,5 +1,3 @@
-require 'pry'
-
 class CoffeeCup
   attr_reader :size
   def cup_parameters(vol1, vol2)
