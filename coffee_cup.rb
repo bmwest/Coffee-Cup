@@ -4,13 +4,9 @@ class CoffeeCup
   attr_reader :size
   attr_accessor :volume
 
-  def cup_parameters(vol1, vol2)
-    @volume = vol1
-    @volume_max = vol2
-  end
-
   def initialize(size = nil, volume = nil, volume_max = nil)
     @size = size
+
     if @size.kind_of?(NilClass)
       cup_parameters(8, 12)
     else
@@ -35,6 +31,11 @@ class CoffeeCup
         @volume_max = volume_max
       end
     end
+  end
+
+  def cup_parameters(vol1, vol2)
+    @volume = vol1
+    @volume_max = vol2
   end
 
   def sip!
