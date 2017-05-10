@@ -2,6 +2,8 @@ require_relative 'simulation'
 
 class CoffeeCup
   attr_reader :size
+  attr_accessor :volume
+
   def cup_parameters(vol1, vol2)
     @volume = vol1
     @volume_max = vol2
@@ -33,10 +35,6 @@ class CoffeeCup
         @volume_max = volume_max
       end
     end
-  end
-
-  def volume
-    @volume
   end
 
   def sip!

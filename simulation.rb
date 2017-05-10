@@ -33,7 +33,7 @@ class Simulation
         print "I'm sorry, would you like to take a 'sip', or would you like a 'refill'?\n> "
       end
       if cup.volume == 0
-        puts "Oh no! It looks like you've dropped and shattered your coffee mug. Come back tomorrow for a new one!"
+        puts "Oh no! It looks like you've dropped and shattered your coffee mug. \nCome back tomorrow for a new one!"
         break
       end
     end
