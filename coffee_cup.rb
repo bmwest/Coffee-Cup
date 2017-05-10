@@ -1,3 +1,5 @@
+require_relative 'simulation'
+
 class CoffeeCup
   attr_reader :size
   def cup_parameters(vol1, vol2)
@@ -60,55 +62,16 @@ class CoffeeCup
       puts "You got a refill, and now have #{@volume}oz left!"
     end
   end
-end
 
-def choose_cup
-  print "Hello, please select a cup. Print 'tall', 'grande', 'venti', 'trenta', \nor 'doppio'\n> "
-  while true
-    choice = gets.chomp
-    if choice == 'tall' || choice == 'grande' || choice == 'venti' || choice == 'trenta' || choice == 'doppio'
-      break
+  def sip_outcome(cup, prompt)
+    chance = rand(1..4)
+    if chance == 2
+      cup.spill!
     else
-      print "Please select a cup. Print 'tall', 'grande', 'venti', 'trenta', \nor 'doppio'\n> "
+      cup.sip!
     end
-  end
-  cup = CoffeeCup.new(choice)
-end
-
-def sip(cup, prompt)
-  chance = rand(1..4)
-  if chance == 2
-    cup.spill!
-  else
-    cup.sip!
-  end
-  if cup.volume > 0
-    print prompt
-  end
-end
-
-def simulate
-  cup = choose_cup
-  prompt = "What would you like to do next? Print 'exit' to leave the coffee shop\n> "
-  print "You've selected #{cup.size}. Take a 'sip'!\n> "
-  while true
-    choice = gets.chomp
-    if choice.downcase == 'sip'
-      sip(cup, prompt)
-    elsif choice.downcase == 'refill'
-      cup.refill!
+    if cup.volume > 0
       print prompt
-    elsif choice.downcase == 'exit'
-      puts "Bye!"
-      break
-    else
-      print "I'm sorry, would you like to take a 'sip', or would you like a 'refill'?\n> "
-    end
-    if cup.volume == 0
-      puts "Oh no! It looks like you've dropped and shattered your coffee mug. Come back tomorrow for a new one!"
-      break
     end
   end
 end
-
-simulate

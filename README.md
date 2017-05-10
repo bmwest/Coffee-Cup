@@ -10,4 +10,4 @@ Simulated sips, spills, and refills
 * The spill! method permanently empties your instance of a cup.
 * The refill! method refills your cup to 2oz less than the cup's maximum volume.
 
-* Open your terminal, and enter ```ruby coffee_cup.rb``` for a simulation.
+* Open your terminal, and enter ```ruby new_simulation.rb``` for a simulation.
